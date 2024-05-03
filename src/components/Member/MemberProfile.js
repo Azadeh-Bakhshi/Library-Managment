@@ -104,8 +104,9 @@ function MemberProfile() {
 
   return (
     <Container maxWidth="sm">
-      <Typography variant="h4" component="h1" gutterBottom>
-        <button onClick={() => window.history.back()}>Back</button>
+     
+      <Typography variant="h4" component="h1"  className="mt-3 fw-bold text-primary" gutterBottom>
+      <button className="btn btn-secondary float-end" onClick={() => window.history.back()}>Back</button>
         Member Profile
       </Typography>
       <Typography variant="body1" gutterBottom>
@@ -117,7 +118,7 @@ function MemberProfile() {
           required
           fullWidth
           id="firstName"
-          label={firstName}
+          label="First Name"
           name="firstName"
           value={memberData.firstName}
           error={errors.firstName}
@@ -129,7 +130,7 @@ function MemberProfile() {
           required
           fullWidth
           id="lastName"
-          label={lastName}
+          label="Last Name"
           name="lastName"
           value={memberData.lastName}
           error={errors.lastName}
@@ -141,7 +142,7 @@ function MemberProfile() {
           required
           fullWidth
           id="email"
-          label={username}
+          label="Email"
           name="email"
           type="email"
           value={memberData.email}
@@ -154,7 +155,7 @@ function MemberProfile() {
           required
           fullWidth
           id="password"
-          label={password}
+          label="Password"
           name="password"
           type="password"
           value={memberData.password}

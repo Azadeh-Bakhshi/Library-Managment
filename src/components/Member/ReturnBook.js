@@ -66,8 +66,8 @@ function ReturnBook() {
 
   return (
     <Container maxWidth="md">
-      <button onClick={() => window.history.back()}>Back</button>
-      <Typography variant="h4" component="h1" gutterBottom>
+      <button className="btn btn-secondary float-end" onClick={() => window.history.back()}>Back</button>
+      <Typography variant="h4" component="h1"   className="mt-3 fw-bold text-primary" gutterBottom>
         Return Book
       </Typography>
       <TextField
@@ -103,5 +103,7 @@ function ReturnBook() {
     </Container>
   );
 }
+
+
 
 export default ReturnBook;

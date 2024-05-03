@@ -53,8 +53,9 @@ function UserRegistration() {
     };
 
     return (
-        <Container maxWidth="sm">
-            <Typography variant="h4" component="h1" gutterBottom>
+        <Container maxWidth="sm" >
+            <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Typography variant="h5" component="h1" gutterBottom className='fw-bold' >
                 User Registration
             </Typography>
             <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -126,6 +127,7 @@ function UserRegistration() {
                 >
                     Register
                 </Button>
+            </Box>
             </Box>
             {/* Modal for showing registration success */}
             <Modal

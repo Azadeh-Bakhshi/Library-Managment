@@ -6,13 +6,17 @@ function LibrarianDashboard() {
   const username = useSelector(state => state.auth.username);
 
   return (
-    <div>
-      <h2>Librarian Dashboard </h2>
-      {username && <p>Welcome, {username}!</p>}
-      <Link to="/librarianprofile">Profile</Link>
-      <Link to="/bookregistration">Book Registration</Link>
-      <Link to="/bookmanagement">Book Management</Link>
+    <div className="container">
+    <h2 className="mt-3 text-primary fw-bold">Librarian Dashboard</h2>
+    {username && <p className="mb-3 text-muted"> Welcome, {username}!</p>}
+    <div className="list-group">
+      <Link to="/librarianprofile" className="list-group-item list-group-item-action btn btn-outline-primary text-dark">Profile</Link>
+      <Link to="/bookregistration" className="list-group-item list-group-item-action btn btn-outline-primary text-dark">Book Registration</Link>
+      <Link to="/bookmanagement" className="list-group-item list-group-item-action btn btn-outline-primary text-dark">Book Management</Link>
     </div>
+  </div>
+  
+
   );
 }
 

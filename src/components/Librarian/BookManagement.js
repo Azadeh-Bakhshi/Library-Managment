@@ -103,8 +103,8 @@ function BookManagement() {
 
   return (
     <Container maxWidth="md">
-      <button onClick={() => window.history.back()}>Back</button>
-      <Typography variant="h4" component="h1" gutterBottom>
+      <button className="btn btn-secondary float-end" onClick={() => window.history.back()}>Back</button>
+      <Typography variant="h4" component="h1" className="mt-3 fw-bold text-primary ">
         Book Management
       </Typography>
       {(updateSuccess || deleteSuccess) && ( // Conditionally render update or delete success message
@@ -129,18 +129,21 @@ function BookManagement() {
                   <TextField
                     value={updatedBooks[book._id]?.name || book.name}
                     onChange={(e) => handleChange(e, book._id, 'name')}
+                    variant="outlined"
                   />
                 </TableCell>
                 <TableCell>
                   <TextField
                     value={updatedBooks[book._id]?.title || book.title}
                     onChange={(e) => handleChange(e, book._id, 'title')}
+                    variant="outlined"
                   />
                 </TableCell>
                 <TableCell>
                   <TextField
                     value={updatedBooks[book._id]?.entity || book.entity}
                     onChange={(e) => handleChange(e, book._id, 'entity')}
+                    variant="outlined"
                   />
                 </TableCell>
                 <TableCell>
@@ -155,5 +158,6 @@ function BookManagement() {
     </Container>
   );
 }
+ 
 
 export default BookManagement;

@@ -48,7 +48,7 @@ function ManageUsers() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Your form submission logic
+    
   };
 
   const handleEdit = (id) => {
@@ -166,8 +166,9 @@ function ManageUsers() {
 <div className="container">
   <div className="row">
     <div className="col">
-      <button onClick={() => window.history.back()} className="btn btn-secondary mb-3">Back</button>
-      <h1 className="mb-4">Admin Form</h1>
+    <button className="btn btn-secondary float-end" onClick={() => window.history.back()}>Back</button>
+      <h4 className="mt-3 fw-bold text-primary">Manage User</h4>
+      {/* <h1 className="mb-4">Admin Form</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <input
@@ -214,7 +215,7 @@ function ManageUsers() {
         ) : (
           <button type="submit" className="btn btn-primary me-2">Submit</button>
         )}
-      </form>
+      </form> */}
     </div>
   </div>
 
@@ -227,6 +228,7 @@ function ManageUsers() {
             <th>Password</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Role</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
@@ -238,6 +240,7 @@ function ManageUsers() {
               <td>{item.password}</td>
               <td>{item.firstName}</td>
               <td>{item.lastName}</td>
+              <td>{item.role}</td>
               <td>{item.isActive ? "Active" : "Deactivate"}</td> {/* Display status based on isActive */}
               <td>
                 <button onClick={() => handleEdit(item._id)} className="btn btn-warning me-2">Update</button>

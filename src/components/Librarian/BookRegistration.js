@@ -61,63 +61,63 @@ function BookRegistration() {
 
   return (
     <Container maxWidth="sm">
-      <Typography variant="h4" component="h1" gutterBottom>
-        <button onClick={() => window.history.back()}>Back</button>
-        Book Registration
-      </Typography>
-      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-        <TextField
-          margin="normal"
-          required
-          fullWidth
+    <Typography variant="h4" component="h1"  className="mt-3 fw-bold text-primary"gutterBottom>
+    <button className="btn btn-secondary float-end" onClick={() => window.history.back()}>Back</button>
+      Book Registration
+    </Typography>
+    <form onSubmit={handleSubmit} noValidate>
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label">Book Name</label>
+        <input
+          type="text"
+          className={`form-control ${errors.name ? 'is-invalid' : ''}`}
           id="name"
-          label="Book Name"
           name="name"
           value={bookDetails.name}
-          error={errors.name}
-          helperText={errors.name ? 'Book Name is required' : ''}
           onChange={handleChange}
         />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
+        {errors.name && <div className="invalid-feedback">Book Name is required</div>}
+      </div>
+      <div className="mb-3">
+        <label htmlFor="title" className="form-label">Book Title</label>
+        <input
+          type="text"
+          className={`form-control ${errors.title ? 'is-invalid' : ''}`}
           id="title"
-          label="Book Title"
           name="title"
           value={bookDetails.title}
-          error={errors.title}
-          helperText={errors.title ? 'Book Title is required' : ''}
           onChange={handleChange}
         />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
+        {errors.title && <div className="invalid-feedback">Book Title is required</div>}
+      </div>
+      <div className="mb-3">
+        <label htmlFor="entity" className="form-label">Entity</label>
+        <input
+          type="text"
+          className={`form-control ${errors.entity ? 'is-invalid' : ''}`}
           id="entity"
-          label="Entity"
           name="entity"
           value={bookDetails.entity}
-          error={errors.entity}
-          helperText={errors.entity ? 'Entity is required' : ''}
           onChange={handleChange}
         />
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-        >
-          Register Book
-        </Button>
-        {registrationSuccess && ( // Conditionally render success message
-          <Typography variant="body1" color="success">
-            Book registered successfully
-          </Typography>
-        )}
-      </Box>
-    </Container>
-  );
+        {errors.entity && <div className="invalid-feedback">Entity is required</div>}
+      </div>
+      <Button
+        type="submit"
+        variant="contained"
+        className="btn btn-primary"
+      >
+        Register Book
+      </Button>
+    </form>
+    {registrationSuccess && (
+      <Typography variant="body1" color="success">
+        Book registered successfully
+      </Typography>
+    )}
+  </Container>
+);
 }
+
 
 export default BookRegistration;

@@ -95,93 +95,81 @@ function LibrarianProfile() {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h4" component="h1" gutterBottom>
-        <button onClick={() => window.history.back()}>Back</button>
-        Librarian Profile
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        All fields are required.
-      </Typography>
-      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="firstName"
-          label={firstName}
-          name="firstName"
-          value={librarianData.firstName}
-          onChange={handleChange}
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="lastName"
-          label={lastName}
-          name="lastName"
-          value={librarianData.lastName}
-          onChange={handleChange}
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="email"
-          label={username}
-          name="email"
-          type="email"
-          value={librarianData.email}
-          onChange={handleChange}
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="password"
-          label={password}
-          name="password"
-          type="password"
-          value={librarianData.password}
-          onChange={handleChange}
-        />
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-        >
-          Update Profile
-        </Button>
-      </Box>
-      <Modal
-        open={modalOpen}
-        onClose={handleCloseModal}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          bgcolor: 'background.paper',
-          border: '2px solid #000',
-          boxShadow: 24,
-          p: 4,
-        }}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Success
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {successMessage}
-          </Typography>
-          <Button onClick={handleCloseModal} sx={{ mt: 2 }}>Close</Button>
-        </Box>
-      </Modal>
-    </Container>
-  );
+    <Container>
+  <h4 className="mt-3 fw-bold text-primary">
+    Librarian Profile
+    <button className="btn btn-secondary float-end" onClick={() => window.history.back()}>Back</button>
+  </h4>
+  <p className="mb-3">All fields are required.</p>
+  <form onSubmit={handleSubmit}>
+    <div className="mb-3">
+      <label htmlFor="firstName" className="form-label">First Name</label>
+      <input
+        type="text"
+        className="form-control"
+        id="firstName"
+        name="firstName"
+        placeholder={firstName}
+        value={librarianData.firstName}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="mb-3">
+      <label htmlFor="lastName" className="form-label">Last Name</label>
+      <input
+        type="text"
+        className="form-control"
+        id="lastName"
+        name="lastName"
+        placeholder={lastName}
+        value={librarianData.lastName}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="mb-3">
+      <label htmlFor="email" className="form-label">Username</label>
+      <input
+        type="email"
+        className="form-control"
+        id="email"
+        name="email"
+        placeholder={username}
+        value={librarianData.email}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="mb-3">
+      <label htmlFor="password" className="form-label">Password</label>
+      <input
+        type="password"
+        className="form-control"
+        id="password"
+        name="password"
+        placeholder={password}
+        value={librarianData.password}
+        onChange={handleChange}
+      />
+    </div>
+    <button type="submit" className="btn btn-primary">Update Profile</button>
+  </form>
+  <div className="modal" tabIndex="-1" style={{ display: modalOpen ? 'block' : 'none' }}>
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title">Success</h5>
+          <button type="button" className="btn-close" onClick={handleCloseModal}></button>
+        </div>
+        <div className="modal-body">
+          <p>{successMessage}</p>
+        </div>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</Container>
+  )
 }
 
 export default LibrarianProfile;

@@ -66,45 +66,59 @@ function AdminReportPage() {
 
   return (
     <Container maxWidth="md">
-      <button onClick={() => window.history.back()}>Back</button>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Admin Report
-      </Typography>
-            
-      <Typography variant="h6" gutterBottom>
-        Number of All Members: {countUsersByRole('member')}
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        Number of All Librarians: {countUsersByRole('librarian')}
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        Number of All Administrators: {countUsersByRole('admin')}
-      </Typography>
+    <div className="mb-3">
+    <button className="btn btn-secondary float-end" onClick={() => window.history.back()}>Back</button>
+    </div>
+    <Typography  variant="h4" className="mt-3 fw-bold text-primary ">
+      Admin Report
+    </Typography>
+    <div className="table-responsive mb-4">
+      <table className="table table-striped table-bordered">
+        <thead className="table-light">
+          <tr>
+            <th>Role</th>
+            <th>Total Users</th>
+            <th>Active Users</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Members</td>
+            <td>{countUsersByRole('member')}</td>
+            <td>{countActiveUsersByRole('member')}</td>
+          </tr>
+          <tr>
+            <td>Librarians</td>
+            <td>{countUsersByRole('librarian')}</td>
+            <td>{countActiveUsersByRole('librarian')}</td>
+          </tr>
+          <tr>
+            <td>Administrators</td>
+            <td>{countUsersByRole('admin')}</td>
+            <td>{countActiveUsersByRole('admin')}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div className="table-responsive">
+      <table className="table table-striped table-bordered">
+        <tbody>
+          <tr>
+            <td className="fw-bold">Number of All Books:</td>
+            <td className="text-body">{books.length}</td>
+          </tr>
+          <tr>
+            <td className="fw-bold">Most Checked-Out Books:</td>
+            <td className="text-body">pizza</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </Container>
+  
+  
+  
 
-      <br />
-
-      <Typography variant="h6" gutterBottom>
-        Number of Active Members: {countActiveUsersByRole('member')}
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        Number of Active Librarians: {countActiveUsersByRole('librarian')}
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        Number of Active Administrators: {countActiveUsersByRole('admin')}
-      </Typography>
-
-      <br />
-
-      <Typography variant="h6" gutterBottom>
-        Number of All Books: {books.length}
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        Most Checked-Out Books: 
-        {calculateMostCheckedOutBook()?.map(book => (
-          <span key={book.id}>{book.name}, </span>
-        ))}
-      </Typography>
-    </Container>
   );
 }
 

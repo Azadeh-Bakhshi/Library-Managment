@@ -41,19 +41,19 @@ function Home() {
   <table class="table">
     <thead>
       <tr>
-        <th>Most Checked-Out Books</th>
+        <th className='fw-bold'> Most Checked-Out Books:</th>
       </tr>
     </thead>
     <tbody>
       {calculateMostCheckedOutBook()?.map(book => (
         <tr key={book.id}>
-          <td className='text-danger'>{book.name}</td>
+          <td className='text-primary'>{book.name}</td>
         </tr>
       ))}
     </tbody>
   </table>
 </div>
-  <h2>Books list</h2>
+  <h2 className='fw-bold'>Books list</h2>
   <table class="table">
     <thead>
       <tr>
@@ -64,8 +64,8 @@ function Home() {
     <tbody>
       {books.map(book => (
         <tr key={book._id}>
-          <td>{book.name}</td>
-          <td>{book.title}</td>
+          <td className='text-primary'>{book.name}</td>
+          <td className='text-primary'>{book.title}</td>
         </tr>
       ))}
     </tbody>
